@@ -1,0 +1,30 @@
+<mat-form-field class="form-search">
+  <mat-label>Search</mat-label>
+  <input matInput type="text" [formControl]="searchControl">
+  @if (searchControl.value) {
+  <button matSuffix mat-icon-button aria-label="Clear" (click)="searchControl.setValue('')">
+    <mat-icon>close</mat-icon>
+  </button>
+  }
+  <button matSuffix mat-icon-button aria-label="Clear" (click)="refresh()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</mat-form-field>
+
+<section>
+  @if(items.length===0){
+  <div class="no-items">No items</div>
+  }
+
+  @for (item of filteredItems; track item) {
+  <a [routerLink]="'/detail/'+item.puntoVenditaId" class="item">
+    <div class="descr">
+      <h3>{{item.descrizione}}</h3>
+      <p>{{item.citta}}</p>
+    </div>
+    <div class="nav">
+      <mat-icon>chevron_right</mat-icon>
+    </div>
+  </a>
+  }
+</section>

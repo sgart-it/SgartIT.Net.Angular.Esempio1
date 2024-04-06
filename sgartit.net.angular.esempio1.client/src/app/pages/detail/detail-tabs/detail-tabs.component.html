@@ -1,0 +1,7 @@
+<nav mat-tab-nav-bar class="detail-tabs" animationDuration="0ms">
+  @for (item of tabs; track item) {
+  <a mat-tab-link [active]="item.id === currentTab" (click)="currentTab = item.id">{{item.text}}</a>
+  }
+</nav>
+
+

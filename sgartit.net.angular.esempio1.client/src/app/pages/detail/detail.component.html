@@ -1,0 +1,81 @@
+<nav class="detail-header">
+  <div>
+    <button mat-icon-button aria-label="back to home" [routerLink]="'/'">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+  <div>
+    <h2>Dettagli <strong>{{item.codice}}</strong></h2>
+  </div>
+  <button mat-icon-button aria-label="back to home" (click)="save()">
+    <mat-icon>save</mat-icon>
+  </button>
+</nav>
+
+<page-detail-tabs [(currentTab)]="currentTabId"></page-detail-tabs>
+
+@if(currentTabId===0){
+<div class="list generals">
+  <div class="item">
+    <h3 class="item-title">Attivo</h3>
+    <span><mat-slide-toggle [(ngModel)]="item.abilitato"></mat-slide-toggle></span>
+  </div>
+  <div class="item">
+    <h3 class="item-title">Codice</h3>
+    <span>{{item.codice}}</span>
+  </div>
+  <div class="item">
+    <h3 class="item-title">Descrizione</h3>
+    <span>{{item.descrizione}}</span>
+  </div>
+  <div class="item">
+    <h3 class="item-title">Città</h3>
+    <span>{{item.citta}}</span>
+  </div>
+  <div class="item">
+    <h3 class="item-title">Email</h3>
+    <span>
+      <input matInput type="text" [(ngModel)]="item.email" class="input">
+    </span>
+  </div>
+  <div class="item">
+    <h3 class="item-title">Telefono</h3>
+    <span><input matInput type="text" [(ngModel)]="item.telefono" class="input"></span>
+  </div>
+
+</div>
+}
+
+@if(currentTabId===1){
+<div class="list prodotti">
+  @for (p of item.prodotti; track $index) {
+  <div class="item">
+    <h3 class="item-title">{{p.descrizione}}</h3>
+    <mat-slide-toggle [disabled]="!p.modificabile" [(ngModel)]="p.selected"></mat-slide-toggle>
+  </div>
+  }
+</div>
+}
+
+@if(currentTabId===2){
+<div class="list servizi">
+  @for (p of item.servizi; track $index) {
+  <div class="item">
+    <h3 class="item-title">{{p.descrizione}}</h3>
+    <mat-slide-toggle [disabled]="!p.modificabile" [(ngModel)]="p.selected"></mat-slide-toggle>
+  </div>
+  }
+</div>
+}
+
+@if(currentTabId===3){
+<div class="list carte">
+  @for (p of item.carte; track $index) {
+  @if(p.selected===true){
+  <div class="item">
+    <h3 class="item-title">{{p.descrizione}}</h3>
+  </div>
+  }
+  }
+</div>
+}

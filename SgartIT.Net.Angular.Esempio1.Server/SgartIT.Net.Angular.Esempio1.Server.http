@@ -1,0 +1,21 @@
+@SgartIT.Net.Angular.Esempio1.Server_HostAddress = http://localhost:5254
+
+GET {{SgartIT.Net.Angular.Esempio1.Server_HostAddress}}/api/PuntiVendita
+Accept: application/json
+
+###
+GET {{SgartIT.Net.Angular.Esempio1.Server_HostAddress}}/api/PuntiVendita/2
+Accept: application/json
+
+###
+PUT {{SgartIT.Net.Angular.Esempio1.Server_HostAddress}}/api/PuntiVendita/2
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "bbb@cccc.it",
+  "telefono": "02 4561",
+  "prodotti": [2,4],
+  "servizi": [4]
+}
+###

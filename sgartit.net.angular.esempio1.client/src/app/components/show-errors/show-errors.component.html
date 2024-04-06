@@ -1,0 +1,7 @@
+@if(errorService.errors.length>0){
+<div class="show-errors">
+  @for (item of errorService.errors; track item) {
+  <div class="error">{{item}} <span (click)="errorService.clear($index)" class="close">X</span></div>
+  }
+</div>
+}

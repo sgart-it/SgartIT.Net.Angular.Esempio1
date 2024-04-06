@@ -1,0 +1,19 @@
+.show-errors {
+  background-color: #FFEDC8;
+  color: #000;
+  padding: 10px;
+}
+
+.error {
+  position: relative;
+  padding: 5px 30px;
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border: 1px solid #888;
+  padding: 4px;
+}
